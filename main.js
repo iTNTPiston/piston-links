@@ -39,7 +39,6 @@
     var paths = cleanHash.split("/").filter(x=>x);
 
     var target = paths.reduce((acc, val)=>{
-        console.log(acc);
         if(!acc){
             return undefined;
         }
