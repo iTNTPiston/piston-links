@@ -1,3 +1,17 @@
 body {
     font-family: monospace, sans-serif;
 }
+
+@media(prefers-color-scheme: dark) { 
+    body {
+        color: lightgrey; 
+        background: black;
+    }
+
+    a {
+        color: lightskyblue;
+    }
+    a:visited {
+        color: lightpink;
+    }
+}

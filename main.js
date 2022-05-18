@@ -7,16 +7,22 @@
         }
     }
     var dump = function(obj, query, path){
+        if(typeof obj === "string"){
+            return;
+        }
         if(obj["_u"]){
             document.write(`<div><a href="${assemble(obj, query)}" rel="noreferrer" target="_blank">${path}</a></div>`);
         }else{
+            
             for(var k in obj){
+                if(typeof obj[k] === "string"){
+                    continue;
+                }
                 dump(obj[k], query, path+"/"+k);
             }
         }
     }
-    console.log(routes);
-    console.log(window.location);
+
     // Get hash
     var hash = window.location.hash;
     var cleanHash = hash.replace(/[^a-zA-Z0-9\/?\-]/g, "");
@@ -31,12 +37,21 @@
         cleanHash = cleanHash.substring(0, qIndex);
     }
     var paths = cleanHash.split("/").filter(x=>x);
+
     var target = paths.reduce((acc, val)=>{
-        return acc ? (acc[val] || undefined) : undefined;
+        console.log(acc);
+        if(!acc){
+            return undefined;
+        }
+        if(!acc[val]){
+            return undefined;
+        }
+        if(typeof acc[val] === "string"){
+            return acc[acc[val]];
+        }
+        return acc[val];
     }, routes)
-    console.log(paths);
-    console.log(target);
-    console.log(query);
+
     if(!target){
         document.write("<div>ln: cannot resolve path</div>");
         document.write("<div>Available:</div>");
