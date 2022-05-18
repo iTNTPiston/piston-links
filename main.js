@@ -25,17 +25,19 @@
 
     // Get hash
     var hash = window.location.hash;
+    // parse query part
+    var qIndex = hash.indexOf("?");
+    var query = "";
+    if(qIndex >= 0) {
+        query = hash.substring(qIndex);
+        hash = hash.substring(0, qIndex);
+    }
+
     var cleanHash = hash.replace(/[^a-zA-Z0-9\/?\-]/g, "");
     if(cleanHash.length && cleanHash[0] === "/"){
         cleanHash = cleanHash.substring(1);
     }
-    // parse query part
-    var qIndex = cleanHash.indexOf("?");
-    var query = "";
-    if(qIndex >= 0) {
-        query = cleanHash.substring(qIndex);
-        cleanHash = cleanHash.substring(0, qIndex);
-    }
+    
     var paths = cleanHash.split("/").filter(x=>x);
 
     var target = paths.reduce((acc, val)=>{
