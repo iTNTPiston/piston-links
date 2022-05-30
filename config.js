@@ -40,6 +40,7 @@ var routes = {
         clips: {
             "lakna-tree-scw": { _u: "https://youtu.be/IzJKJ64nOsg" },
             "horse-warp"    : { _u: "https://youtu.be/FAZBB85Cj2s" },
+            "scw-inputs"    : { _u: "https://twitter.com/i_piston/status/1486596243564347392" },
         }
     }
 };
