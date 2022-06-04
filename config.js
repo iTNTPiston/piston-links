@@ -33,6 +33,7 @@ var routes = {
         rt: "routes",
         routes: {
             asx: { _u: "https://celer.itntpiston.app/#/gh/iTNTPiston/asx" },
+            as:  { _u: "https://celer.itntpiston.app/#/gh/iTNTPiston/as3" },
             msr: { _u: "https://celer.itntpiston.app/#/gh/iTNTPiston/msr" },
             "msr-ml": { _u: "https://celer.itntpiston.app/#/gh/iTNTPiston/msr/mogg-latan" }
         },
